@@ -3,8 +3,9 @@ import openai
 import fitz  # PyMuPDF
 import docx
 from transformers import pipeline
+from setuptools import find_packages
 
-open_api_key = st.secrets["api"]["OPEN_API_KEY"]
+# open_api_key = st.secrets["api"]["OPEN_API_KEY"]
 
 # Function to parse resume content from PDF or DOCX
 def parse_resume(file):
