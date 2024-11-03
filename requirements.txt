@@ -1,3 +1,5 @@
+pip>=23.0
+setuptools>=65.0
 wheel
 streamlit==1.25.0
 openai==0.27.0
@@ -6,5 +8,6 @@ python-docx==0.8.11
 transformers==4.33.0
 spacy==3.5.3
 pandas==2.1.1
-thinc==9.1.1
+python-dotenv==1.0.0
+thinc>=9.5.0
 thinc.tests.mypy.configs
