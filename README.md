@@ -5,6 +5,8 @@
 ## Description
 The Interview Preparation Tool is a web application designed to assist job seekers, particularly students and recent graduates, in preparing for job interviews. This application generates tailored interview questions and suggested answers based on the user’s resume and the job descriptions they are targeting.
 
+Website Link : https://appai-website-baznfwzocvbxrqubqnwicf.streamlit.app/
+
 ## Main Idea
 The application leverages AI technologies to analyze resumes and correlate them with job descriptions, providing users with relevant interview questions that can help them anticipate potential inquiries during interviews.
 
