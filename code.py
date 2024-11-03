@@ -2,10 +2,9 @@ import streamlit as st
 import openai
 import fitz  # PyMuPDF
 import docx
-from transformers import pipeline
-from setuptools import find_packages
 
-open_api_key = st.secrets["api"]["OPEN_API_KEY"]
+# Set up OpenAI API key
+openai.api_key = st.secrets["api"]["OPEN_API_KEY"]
 
 # Function to parse resume content from PDF or DOCX
 def parse_resume(file):
@@ -23,14 +22,39 @@ def parse_resume(file):
 # Function to generate interview questions using OpenAI
 def generate_questions(resume_text, job_description, num_questions=10):
     prompt = f"Generate {num_questions} interview questions based on the resume: '{resume_text}' and job description: '{job_description}'."
-    response = openai.Completion.create(engine="text-davinci-003", prompt=prompt, max_tokens=500)
-    return response.choices[0].text.strip().split('\n')
+    
+    try:
+        with st.spinner('Generating questions...'):
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "user", "content": prompt}
+                ],
+                max_tokens=500
+            )
+            questions = response.choices[0].message['content'].strip().split('\n')
+            return questions
+    except Exception as e:
+        st.error(f"Error generating questions: {e}")
+        return []
 
 # Function to generate answers using OpenAI
 def generate_answer(resume_text, question):
     prompt = f"Based on the following resume: '{resume_text}', provide an answer to this interview question: '{question}'"
-    response = openai.Completion.create(engine="text-davinci-003", prompt=prompt, max_tokens=200)
-    return response.choices[0].text.strip()
+    
+    try:
+        with st.spinner('Generating answer...'):
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "user", "content": prompt}
+                ],
+                max_tokens=200
+            )
+            return response.choices[0].message['content'].strip()
+    except Exception as e:
+        st.error(f"Error generating answer: {e}")
+        return "Error generating answer."
 
 # Page 1: Introduction
 def show_introduction():
