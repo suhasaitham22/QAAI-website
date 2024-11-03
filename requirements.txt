@@ -9,5 +9,5 @@ transformers==4.33.0
 spacy==3.5.3
 pandas==2.1.1
 python-dotenv==1.0.0
-thinc>=9.5.0
+thinc==8.1.9
 thinc.tests.mypy.configs
