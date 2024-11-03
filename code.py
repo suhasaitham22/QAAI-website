@@ -57,11 +57,28 @@ def generate_answer(resume_text, question):
         return "Error generating answer."
 
 # Page 1: Introduction
+# Page 1: Introduction
 def show_introduction():
     st.header("Introduction")
+    
     st.write("""
-    This tool helps job seekers prepare for interviews by analyzing their resumes and generating 
-    potential interview questions and answer suggestions based on the job they’re targeting.
+    This application is designed to assist job seekers, particularly students and recent graduates, in preparing for job interviews by generating tailored interview questions and suggested answers based on their resumes and the job descriptions they are targeting.
+    
+    ### Main Idea
+    The main idea behind this tool is to streamline the interview preparation process. By leveraging AI technologies, it analyzes the content of resumes and correlates it with job descriptions to provide relevant questions that candidates may face during interviews. This not only helps users anticipate potential questions but also enables them to formulate structured and informed responses that highlight their qualifications and experiences.
+
+    ### Technologies Used
+    - **Streamlit**: A powerful framework for building interactive web applications quickly, allowing users to interact with the tool easily.
+    - **OpenAI's GPT Model**: Utilized to generate insightful interview questions and answers based on the user's resume and desired job description. This AI model is trained on a diverse range of topics, making it capable of providing meaningful and contextually relevant content.
+    - **PyMuPDF and python-docx**: Libraries used for parsing PDF and DOCX resume files, allowing users to upload their resumes seamlessly.
+    
+    ### Benefits for Students and Job Seekers
+    - **Tailored Preparation**: Users receive personalized interview questions that are specific to their resumes and job aspirations, enhancing their preparation strategy.
+    - **Confidence Building**: By practicing with AI-generated questions and suggested answers, candidates can build their confidence before actual interviews, leading to improved performance.
+    - **Accessibility**: The tool is easy to use and can be accessed from anywhere, making it a convenient resource for anyone looking to improve their interview skills.
+    - **Time Efficiency**: Instead of spending hours searching for common interview questions or writing down responses, users can quickly generate and refine their answers, allowing them to focus on other aspects of their job search.
+
+    This tool is not only beneficial for students but also for anyone looking to enhance their interview skills and secure their desired job.
     """)
 
 # Page 2: Resume Upload and Question Generation
